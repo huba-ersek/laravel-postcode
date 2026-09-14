@@ -12,3 +12,8 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.click-link {
+    text-decoration: none;
+    text-decoration-color: transparent;
+}

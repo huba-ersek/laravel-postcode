@@ -10,6 +10,10 @@
 </div>
 @endif
 
+<a href="{{ route('counties.create') }}" class="click-link">
+    <button>Új vármegye hozzáadása</button>
+</a>
+<br><br>
 <table class="counties-table">
     <tr>
         <th class="counties-table county-name">Név</th>
