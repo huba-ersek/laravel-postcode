@@ -10,7 +10,8 @@
 </div>
 @endif
 
-<form>
+<form method="GET" action="">
+    @csrf
     <label for="search-name">Város neve: </label>
     <input type="text" id="search-name" name="name" />
     <br>
