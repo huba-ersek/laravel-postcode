@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\City;
+use App\Models\County;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CitiesController extends Controller
@@ -12,8 +14,18 @@ class CitiesController extends Controller
      */
     public function index()
     {
-        $cities = City::all();
-        return view('cities.index', compact('cities'));
+        $name = request()->input('name');
+        $countyId = request()->input('county-id');
+        $counties = County::all();
+        $cities = City::query()
+            ->when($name, function (Builder $query, string $name) {
+                $query->where('city', 'LIKE', '%' . $name . '%');
+            })
+            ->when($countyId, function (Builder $query, string $id) {
+                $query->where('county_id', '=', $id);
+            })
+            ->get();
+        return view('cities.index', compact('cities', 'counties'));
     }
 
     /**

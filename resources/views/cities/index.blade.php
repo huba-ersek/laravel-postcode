@@ -10,6 +10,22 @@
 </div>
 @endif
 
+<form>
+    <label for="search-name">Város neve: </label>
+    <input type="text" id="search-name" name="name" />
+    <br>
+    <label for="filter-county">Megye: </label>
+    <select id="filter-county" name="county-id">
+        <option value=""></option>
+        @foreach($counties as $county)
+        <option value="{{ $county->id }}">{{ $county->name }}</option>
+        @endforeach
+    </select>
+    <br>
+    <input value="Keresés" type="submit" />
+</form>
+<br>
+
 <table class="counties-table">
     <tr>
         <th class="counties-table county-name">Név</th>
