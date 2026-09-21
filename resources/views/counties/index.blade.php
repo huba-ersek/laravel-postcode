@@ -36,7 +36,7 @@
         <td class="listing-table listing-cell"><img src="{{ $county->arms }}" width="50"></td>
         <td class="listing-table listing-cell">{{ number_format($county->population, 0, '.', ' ') }}</td>
         <td class="listing-table listing-cell">
-            <button>Módosítás</button>
+            <a href="{{ route('counties.edit', $county->id) }}"><button>Módosítás</button></a>
             <form action="{{ route('counties.destroy', $county->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
