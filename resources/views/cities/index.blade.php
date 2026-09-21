@@ -43,4 +43,8 @@
     @endforeach
 </table>
 
+<div class="paginator">
+    {{ $cities->links() }}
+</div>
+
 @endsection

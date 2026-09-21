@@ -24,7 +24,7 @@ class CitiesController extends Controller
             ->when($countyId, function (Builder $query, string $id) {
                 $query->where('county_id', '=', $id);
             })
-            ->get();
+            ->paginate(20);
         return view('cities.index', compact('cities', 'counties'));
     }
 
