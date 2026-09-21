@@ -13,11 +13,10 @@
 <form action="{{ route('counties.store') }}" method="post">
     @csrf
     <fieldset>
-        <label for="name">Vármegye neve</label>
+        <label for="name">Vármegye neve: </label>
         <input type="text" name="name" id="name">
-    </fieldset>
-    <fieldset>
-        <label for="arms">Vármegye címere</label>
+        <br>
+        <label for="arms">Vármegye címere: </label>
         <input type="text" name="arms" id="arms">
     </fieldset>
     <button type="submit">Ment</button>
