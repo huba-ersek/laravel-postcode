@@ -10,6 +10,13 @@
 </div>
 @endif
 
+<form>
+    <label for="search-name">Megye neve: </label>
+    <input type="text" id="search-name" name="name" />
+    <input value="Keresés" type="submit" />
+</form>
+<br>
+
 <a href="{{ route('counties.create') }}" class="click-link">
     <button>Új vármegye hozzáadása</button>
 </a>
@@ -24,7 +31,7 @@
     <tr>
         <td class="counties-table county-cell">{{ $county->name }}</td>
         <td class="counties-table county-cell"><img src="{{ $county->arms }}" width="50"></td>
-        <td class="counties-table county-cell">{{ $county->population }}</td>
+        <td class="counties-table county-cell">{{ number_format($county->population, 0, '.', ' ') }}</td>
     </tr>
     @endforeach
 </table>

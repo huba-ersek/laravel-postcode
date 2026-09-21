@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\County;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class CountiesController extends Controller
@@ -13,10 +13,14 @@ class CountiesController extends Controller
      */
     public function index()
     {
+        $name = request()->input('name');
         $counties = County::query()
             ->select('counties.name', 'counties.arms')
             ->selectRaw('SUM(cities.population) AS population')
             ->join('cities', 'cities.county_id', '=', 'counties.id')
+            ->when($name, function (Builder $query, string $name) {
+                $query->where('name', 'LIKE', '%' . $name . '%');
+            })
             ->groupBy('counties.name', 'counties.arms')
             ->get();
         return view('counties.index', compact('counties'));
