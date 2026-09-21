@@ -16,13 +16,15 @@
 <br><br>
 <table class="counties-table">
     <tr>
-        <th class="counties-table county-name">Név</th>
-        <th class="counties-table county-image">Címer</th>
+        <th class="counties-table county-cell">Név</th>
+        <th class="counties-table county-cell">Címer</th>
+        <th class="counties-table county-cell">Összpopuláció</th>
     </tr>
     @foreach($counties as $county)
     <tr>
-        <td class="counties-table county-name">{{ $county->name }}</td>
-        <td class="counties-table county-image"><img src="{{ $county->arms }}" width="50"></td>
+        <td class="counties-table county-cell">{{ $county->name }}</td>
+        <td class="counties-table county-cell"><img src="{{ $county->arms }}" width="50"></td>
+        <td class="counties-table county-cell">{{ $county->population }}</td>
     </tr>
     @endforeach
 </table>

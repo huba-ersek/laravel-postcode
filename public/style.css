@@ -3,12 +3,7 @@
     border-collapse: collapse;
 }
 
-.county-name {
-    padding-left: 10px;
-    padding-right: 10px;
-}
-
-.county-image {
+.county-cell {
     padding-left: 10px;
     padding-right: 10px;
 }
