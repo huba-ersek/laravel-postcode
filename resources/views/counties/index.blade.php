@@ -5,9 +5,10 @@
 <h1>Megyék listája</h1>
 
 @if(session('success'))
-<div class="alert alert-success">
+<div class="alert-success">
     {{ session('success') }}
 </div>
+<br>
 @endif
 
 <form method="GET" action="">
