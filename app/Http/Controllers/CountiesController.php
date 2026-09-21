@@ -11,9 +11,9 @@ class CountiesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $name = request()->input('name');
+        $name = $request->input('name');
         $counties = County::query()
             ->select('counties.name', 'counties.arms')
             ->selectRaw('SUM(cities.population) AS population')
@@ -23,7 +23,7 @@ class CountiesController extends Controller
             })
             ->groupBy('counties.name', 'counties.arms')
             ->get();
-        return view('counties.index', compact('counties'));
+        return view('counties.index', compact('counties', 'name'));
     }
 
     /**

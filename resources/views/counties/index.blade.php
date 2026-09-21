@@ -13,7 +13,7 @@
 <form method="GET" action="">
     @csrf
     <label for="search-name">Megye neve: </label>
-    <input type="text" id="search-name" name="name" />
+    <input type="text" id="search-name" name="name" value="{{ old('name', $name) }}" />
     <input value="Keresés" type="submit" />
 </form>
 <br>

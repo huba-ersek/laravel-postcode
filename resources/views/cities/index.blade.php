@@ -13,13 +13,13 @@
 <form method="GET" action="">
     @csrf
     <label for="search-name">Város neve: </label>
-    <input type="text" id="search-name" name="name" />
+    <input type="text" id="search-name" name="name" value="{{ old('name', $name) }}" />
     <br>
     <label for="filter-county">Megye: </label>
     <select id="filter-county" name="county-id">
         <option value=""></option>
         @foreach($counties as $county)
-        <option value="{{ $county->id }}">{{ $county->name }}</option>
+        <option value="{{ $county->id }}" @selected(old('county-id', $countyId) == $county->id)>{{ $county->name }}</option>
         @endforeach
     </select>
     <br>

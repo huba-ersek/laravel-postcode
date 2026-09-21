@@ -12,10 +12,10 @@ class CitiesController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $name = request()->input('name');
-        $countyId = request()->input('county-id');
+        $name = $request->input('name');
+        $countyId = $request->input('county-id');
         $counties = County::all();
         $cities = City::query()
             ->when($name, function (Builder $query, string $name) {
@@ -24,8 +24,9 @@ class CitiesController extends Controller
             ->when($countyId, function (Builder $query, string $id) {
                 $query->where('county_id', '=', $id);
             })
-            ->paginate(20);
-        return view('cities.index', compact('cities', 'counties'));
+            ->paginate(20)
+            ->withQueryString();
+        return view('cities.index', compact('cities', 'counties', 'name', 'countyId'));
     }
 
     /**
