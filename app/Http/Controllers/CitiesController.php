@@ -34,7 +34,8 @@ class CitiesController extends Controller
      */
     public function create()
     {
-        return view('cities.create');
+        $counties = County::all();
+        return view('cities.create', compact('counties'));
     }
 
     /**

@@ -5,7 +5,7 @@
 <h1>Új vármegye</h1>
 
 @if($errors->any())
-<div class="alert alert-warning">
+<div class="alert-warning">
     <ul>
         @foreach($errors->all() as $error)
         <li>{{ $error }}</li>

@@ -27,6 +27,11 @@
 </form>
 <br>
 
+<a href="{{ route('cities.create') }}">
+    <button>Új város létrehozása</button>
+</a>
+<br><br>
+
 <table class="listing-table">
     <tr>
         <th class="listing-table listing-cell">Név</th>
