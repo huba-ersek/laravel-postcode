@@ -22,17 +22,17 @@
     <button>Új vármegye hozzáadása</button>
 </a>
 <br><br>
-<table class="counties-table">
+<table class="listing-table">
     <tr>
-        <th class="counties-table county-cell">Név</th>
-        <th class="counties-table county-cell">Címer</th>
-        <th class="counties-table county-cell">Összpopuláció</th>
+        <th class="listing-table listing-cell">Név</th>
+        <th class="listing-table listing-cell">Címer</th>
+        <th class="listing-table listing-cell">Összpopuláció</th>
     </tr>
     @foreach($counties as $county)
     <tr>
-        <td class="counties-table county-cell">{{ $county->name }}</td>
-        <td class="counties-table county-cell"><img src="{{ $county->arms }}" width="50"></td>
-        <td class="counties-table county-cell">{{ number_format($county->population, 0, '.', ' ') }}</td>
+        <td class="listing-table listing-cell">{{ $county->name }}</td>
+        <td class="listing-table listing-cell"><img src="{{ $county->arms }}" width="50"></td>
+        <td class="listing-table listing-cell">{{ number_format($county->population, 0, '.', ' ') }}</td>
     </tr>
     @endforeach
 </table>

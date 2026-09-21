@@ -1,9 +1,9 @@
-.counties-table {
+.listing-table {
     border: 1px solid black;
     border-collapse: collapse;
 }
 
-.county-cell {
+.listing-cell {
     padding-left: 10px;
     padding-right: 10px;
 }

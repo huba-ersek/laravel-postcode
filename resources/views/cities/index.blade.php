@@ -27,19 +27,19 @@
 </form>
 <br>
 
-<table class="counties-table">
+<table class="listing-table">
     <tr>
-        <th class="counties-table county-name">Név</th>
-        <th class="counties-table county-name">Irányítószám</th>
-        <th class="counties-table county-name">Lakosság</th>
-        <th class="counties-table county-name">Vármegye</th>
+        <th class="listing-table listing-cell">Név</th>
+        <th class="listing-table listing-cell">Irányítószám</th>
+        <th class="listing-table listing-cell">Lakosság</th>
+        <th class="listing-table listing-cell">Vármegye</th>
     </tr>
     @foreach($cities as $city)
     <tr>
-        <td class="counties-table county-name">{{ $city->city }}</td>
-        <td class="counties-table county-name">{{ $city->zip_code }}</td>
-        <td class="counties-table county-name">{{ $city->population }}</td>
-        <td class="counties-table county-name">{{ $city->county->name }}</td>
+        <td class="listing-table listing-cell">{{ $city->city }}</td>
+        <td class="listing-table listing-cell">{{ $city->zip_code }}</td>
+        <td class="listing-table listing-cell">{{ $city->population }}</td>
+        <td class="listing-table listing-cell">{{ $city->county->name }}</td>
     </tr>
     @endforeach
 </table>
