@@ -27,12 +27,21 @@
         <th class="listing-table listing-cell">Név</th>
         <th class="listing-table listing-cell">Címer</th>
         <th class="listing-table listing-cell">Összpopuláció</th>
+        <th class="listing-table listing-cell"></th>
     </tr>
     @foreach($counties as $county)
     <tr>
         <td class="listing-table listing-cell">{{ $county->name }}</td>
         <td class="listing-table listing-cell"><img src="{{ $county->arms }}" width="50"></td>
         <td class="listing-table listing-cell">{{ number_format($county->population, 0, '.', ' ') }}</td>
+        <td class="listing-table listing-cell">
+            <button>Módosítás</button>
+            <form action="{{ route('counties.destroy', $county->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="delete" type="submit" onclick="return confirm('Biztosan akarja törölni?')">Törlés</button>
+            </form>
+        </td>
     </tr>
     @endforeach
 </table>

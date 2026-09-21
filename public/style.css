@@ -12,3 +12,7 @@
     text-decoration: none;
     text-decoration-color: transparent;
 }
+
+.delete {
+    color: red;
+}

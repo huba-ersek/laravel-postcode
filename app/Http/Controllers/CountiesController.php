@@ -15,13 +15,14 @@ class CountiesController extends Controller
     {
         $name = $request->input('name');
         $counties = County::query()
-            ->select('counties.name', 'counties.arms')
+            ->select('counties.*')
             ->selectRaw('SUM(cities.population) AS population')
-            ->join('cities', 'cities.county_id', '=', 'counties.id')
+            ->leftJoin('cities', 'cities.county_id', '=', 'counties.id')
             ->when($name, function (Builder $query, string $name) {
                 $query->where('name', 'LIKE', '%' . $name . '%');
             })
-            ->groupBy('counties.name', 'counties.arms')
+            ->groupBy('counties.id', 'counties.name', 'counties.arms')
+            ->orderBy('counties.name')
             ->get();
         return view('counties.index', compact('counties', 'name'));
     }

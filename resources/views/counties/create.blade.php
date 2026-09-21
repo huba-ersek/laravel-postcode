@@ -4,11 +4,15 @@
 
 <h1>Új vármegye</h1>
 
-@error('name')
+@if($errors->any())
 <div class="alert alert-warning">
-    {{ $message }}
+    <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
 </div>
-@enderror
+@endif
 
 <form action="{{ route('counties.store') }}" method="post">
     @csrf
